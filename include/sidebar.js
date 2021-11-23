@@ -16,15 +16,18 @@ function filterProducts(inputID)
 
 function filterCore(inputID)
 {
-  console.log(document.getElementById("filterSliderCoreMin").value);
-  console.log(document.getElementById("filterSliderCoreMax").value);
+  if (Number(inputID.valueAsNumber) > Number(document.getElementById("filterSliderCoreMax").value)){
+    inputID.valueAsNumber = document.getElementById("filterSliderCoreMax").value;
+  }
+  console.log(inputID.valueAsNumber);
+
   rows.forEach((row) =>
   {
-    if (Number(row.querySelector("#prodTableProductAttributeNumOfCores").textContent) < Number(inputID.value))
+    if ((Number(row.querySelector("#prodTableProductAttributeNumOfCores").textContent) >= Number(document.getElementById("filterSliderCoreMin").value)) && (Number(row.querySelector("#prodTableProductAttributeNumOfCores").textContent) <= document.getElementById("filterSliderCoreMax").value))
     {
-      row.style.display = 'none';
-    }else {
       row.style.display = '';
+    }else {
+      row.style.display = 'none';
     }
  });
 }
