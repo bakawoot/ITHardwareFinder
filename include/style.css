@@ -1,0 +1,185 @@
+*{
+  margin:0;
+  padding:0;
+  background-color: white;
+  color: black;
+}
+
+div.sidebar{
+  visibility: hidden;
+}
+
+.tartalom_formazas{
+  margin:0 50px;
+}
+
+footer{
+  height:70px;
+  background-color: black;
+  position: relative;
+  width: 100%;
+  color:white;
+  bottom:0;
+  display: flex;
+  margin-top:30px;
+}
+
+footer p {
+  margin: auto;
+}
+
+nav{
+  height:70px;
+  background-color: black;
+  position: relative;
+  width: 100%;
+  color:white;
+  display: flex;
+  top:0;
+  margin-bottom:30px;
+}
+
+nav ul{
+  display: flex;
+  list-style: none;
+  flex-direction: row;
+  align-content: space-between;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+nav ul li{
+  margin:auto;
+}
+
+.content, .sidebar{
+  color:white;
+}
+
+
+@media screen and (max-width: 992px) {
+/*Kereso*/
+.kereso{
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 5rem;
+}
+.sidebar{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+}
+
+@media screen and (min-width: 993px) {
+  /*Kereso*/
+  .kereso{
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+  }
+  .sidebar{
+    display: flex;
+    flex-direction: column;
+    width: 334px;
+  }
+  }
+
+
+
+/*SIDEBAR_kereso*/
+/**/
+
+
+.kriterium{
+  margin:10px 0;
+  list-style: none;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  line-height: 3;
+  justify-content: space-between;
+  border-bottom: 1px solid #a4a4a4;
+}
+
+.kriterium::after{
+  content: ">";
+}
+
+.k_lehetoseg{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.k_lehetoseg li{
+  margin: 5px 0;
+}
+
+.tobb_lehetoseg {
+  padding:0 0 10px 5px;
+  cursor: pointer;
+  /* padding-left:25px; */
+}
+
+li input::after{
+  margin:0;
+  padding:0;
+}
+
+/*Content*/
+/**/
+
+.content{
+    width: 100%;
+}
+.kereses_eredmeny :first-child{
+  border-bottom: 1px solid #a4a4a4;
+  margin-bottom:10px;
+}
+
+.kereses_eredmeny{
+  padding:0;
+  list-style: none;
+  margin:10px 0;
+}
+
+.asd{
+  cursor: pointer;
+}
+
+/*talalat*/
+
+div.prodTable{
+	display: table;
+	/*display: table-row-group;*/
+	width: 80%;
+	/*border: 1px solid red;*/
+}
+
+.prodTableRow{
+	display: table-row;
+}
+
+.prodTableHeader{
+	display: table-header-group;
+	width: 200px;
+	/*border: 1px solid green;*/
+    float: left;
+	font-weight: bold;
+	padding: 3px 10px;
+}
+.prodTableCell{
+	display: table-cell;
+	width: 200px;
+	/*border: 1px solid blue;*/
+	float: left;
+	padding: 3px 10px;
+}
+
+table.prodTable{
+	border: 1px solid black;
+}
+
+td{
+	border: 1px dotted black;
+}
