@@ -16,9 +16,8 @@ function filterProducts(inputID)
 
 function filterCore(inputID)
 {
-  if (Number(inputID.valueAsNumber) > Number(document.getElementById("filterSliderCoreMax").value)){
-    inputID.valueAsNumber = document.getElementById("filterSliderCoreMax").value;
-  }
+  //Number(document.getElementById("filterSliderCoreMax").value);
+
   console.log(inputID.valueAsNumber);
 
   rows.forEach((row) =>
