@@ -14,10 +14,16 @@ function filterProducts(inputID)
  });
 }
 
+var output2 = document.getElementById("demo2");
+var output = document.getElementById("demo");
+output.innerHTML = document.getElementById("filterSliderCoreMin").value;
+output2.innerHTML = document.getElementById("filterSliderCoreMax").value;
+
 function filterCore(inputID)
 {
   //Number(document.getElementById("filterSliderCoreMax").value);
-
+  output.innerHTML = document.getElementById("filterSliderCoreMin").value;
+  output2.innerHTML = document.getElementById("filterSliderCoreMax").value;
   console.log(inputID.valueAsNumber);
 
   rows.forEach((row) =>
