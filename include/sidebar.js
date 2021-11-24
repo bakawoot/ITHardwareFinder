@@ -14,17 +14,25 @@ function filterProducts(inputID)
  });
 }
 
-var output2 = document.getElementById("demo2");
-var output = document.getElementById("demo");
-output.innerHTML = document.getElementById("filterSliderCoreMin").value;
-output2.innerHTML = document.getElementById("filterSliderCoreMax").value;
+var filterSliderCoreMax = document.getElementById("filterSliderCoreMaxValue");
+var filterSliderCoreMinValue = document.getElementById("filterSliderCoreMinValue");
+filterSliderCoreMinValue.innerHTML = document.getElementById("filterSliderCoreMin").value;
+filterSliderCoreMax.innerHTML = document.getElementById("filterSliderCoreMax").value;
 
 function filterCore(inputID)
 {
-  //Number(document.getElementById("filterSliderCoreMax").value);
-  output.innerHTML = document.getElementById("filterSliderCoreMin").value;
-  output2.innerHTML = document.getElementById("filterSliderCoreMax").value;
-  console.log(inputID.valueAsNumber);
+  if (Number(document.getElementById("filterSliderCoreMax").value) < Number(document.getElementById("filterSliderCoreMin").value)){
+      if (inputID.id == "filterSliderCoreMin")
+      {
+        document.getElementById("filterSliderCoreMax").value = document.getElementById("filterSliderCoreMin").value;
+      }else
+      {
+        document.getElementById("filterSliderCoreMin").value = document.getElementById("filterSliderCoreMax").value;
+      }
+  }
+
+  filterSliderCoreMinValue.innerHTML = document.getElementById("filterSliderCoreMin").value;
+  filterSliderCoreMax.innerHTML = document.getElementById("filterSliderCoreMax").value;
 
   rows.forEach((row) =>
   {
