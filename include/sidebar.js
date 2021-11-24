@@ -21,6 +21,9 @@ filterSliderCoreMax.innerHTML = document.getElementById("filterSliderCoreMax").v
 
 function filterCore(inputID)
 {
+  document.getElementById("filterSliderCoreMin").max = document.getElementById("filterSliderCoreMax").value;
+  document.getElementById("filterSliderCoreMax").min = document.getElementById("filterSliderCoreMin").value;
+
   if (Number(document.getElementById("filterSliderCoreMax").value) < Number(document.getElementById("filterSliderCoreMin").value)){
       if (inputID.id == "filterSliderCoreMin")
       {
