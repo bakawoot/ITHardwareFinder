@@ -1,63 +1,62 @@
-document.getElementById("sidebar").style.visibility = "visible";
+document.getElementById("Filters").style.visibility = "visible";
 
 const rows = document.querySelectorAll("tbody tr");
-console.log(rows);
+//console.log(rows);
 
-function filterProducts(inputID)
+//1 input (checkbox)
+function filterPackage(inputID)
 {
-  content = inputID.parentElement.textContent;
+  console.log(inputID);
+  content = inputID;
   rows.forEach((row) => {
-    if (row.querySelector("#prodTableProductAttributeNumOfCores").textContent != content.trim())
+    if (row.querySelector("#prodTableProductAttributePackage").textContent != content.trim())
     {
       row.style.display = 'none';
-    }
- });
-}
-
-var filterSliderCoreMax = document.getElementById("filterSliderCoreMaxValue");
-var filterSliderCoreMinValue = document.getElementById("filterSliderCoreMinValue");
-filterSliderCoreMinValue.innerHTML = document.getElementById("filterSliderCoreMin").value;
-filterSliderCoreMax.innerHTML = document.getElementById("filterSliderCoreMax").value;
-
-function filterCore(inputID)
-{
-  document.getElementById("filterSliderCoreMin").max = document.getElementById("filterSliderCoreMax").value;
-  document.getElementById("filterSliderCoreMax").min = document.getElementById("filterSliderCoreMin").value;
-
-  if (Number(document.getElementById("filterSliderCoreMax").value) < Number(document.getElementById("filterSliderCoreMin").value)){
-      if (inputID.id == "filterSliderCoreMin")
+    } else
       {
-        document.getElementById("filterSliderCoreMax").value = document.getElementById("filterSliderCoreMin").value;
-      }else
-      {
-        document.getElementById("filterSliderCoreMin").value = document.getElementById("filterSliderCoreMax").value;
+        row.style.display = 'table-row';
       }
-  }
 
-  filterSliderCoreMinValue.innerHTML = document.getElementById("filterSliderCoreMin").value;
-  filterSliderCoreMax.innerHTML = document.getElementById("filterSliderCoreMax").value;
-
-  rows.forEach((row) =>
-  {
-    if ((Number(row.querySelector("#prodTableProductAttributeNumOfCores").textContent) >= Number(document.getElementById("filterSliderCoreMin").value)) && (Number(row.querySelector("#prodTableProductAttributeNumOfCores").textContent) <= document.getElementById("filterSliderCoreMax").value))
-    {
-      row.style.display = '';
-    }else {
-      row.style.display = 'none';
-    }
  });
 }
 
-function filterCoreMax(inputID)
+//2 input (text input)
+function filterCore()
 {
-  console.log(inputID.value);
+  var filterCoreMinValue = Number(document.getElementById("filterCoreMin").value);
+  var filterCoreMaxValue = Number(document.getElementById("filterCoreMax").value);
+  console.log(filterCoreMinValue);
+  console.log(filterCoreMaxValue);
+  console.log("lefut");
   rows.forEach((row) =>
   {
-    if (Number(row.querySelector("#prodTableProductAttributeNumOfCores").textContent) > Number(inputID.value))
+    if ((Number(row.querySelector("#prodTableProductAttributeNumOfCores").textContent) >= filterCoreMinValue) && Number(row.querySelector("#prodTableProductAttributeNumOfCores").textContent) <= filterCoreMaxValue)
     {
-      row.style.display = 'none';
+      row.style.display = 'table-row';
     }else {
-      row.style.display = '';
+      row.style.display = 'none';
     }
- });
+  });
 }
+
+
+function filter()
+{
+  inputFields = document.getElementById('Filters').getElementsByTagName('input');
+  var arrayLength = inputFields.length;
+  for (var i = 0; i < arrayLength; i++) {
+    //console.log(inputFields)
+      if (inputFields[i].type == 'text')
+      {
+        console.log(inputFields[i].value);
+      }
+      if (inputFields[i].type == 'checkbox')
+      {
+        //console.log(inputFields[i].parentElement.textContent);
+        console.log(inputFields[i].checked)
+      }
+      //Do something
+  }
+}
+
+filter();
